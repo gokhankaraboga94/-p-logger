@@ -1,0 +1,13 @@
+{
+  "name": "ip-logger",
+  "version": "1.0.0",
+  "description": "IP adreslerini loglayan ve e-posta gönderen uygulama",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemailer": "^6.4.18"
+  }
+}
