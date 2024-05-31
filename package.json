@@ -1,8 +1,8 @@
 {
-  "name": "p-logger",
+  "name": "xp-logger",
   "version": "1.0.0",
   "description": "IP adreslerini loglayan ve e-posta gönderen uygulama",
-  "main": "server.js",
+  "main": "xserver.js",
   "scripts": {
     "start": "node server.js"
   },
