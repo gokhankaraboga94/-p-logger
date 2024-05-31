@@ -2,6 +2,7 @@ services:
   - type: web
     name: p-logger
     env: node
+    rootDir: ./p-logger
     buildCommand: npm install
     startCommand: npm start
     envVars:
