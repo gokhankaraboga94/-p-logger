@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: p-logger
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: EMAIL_USER
+        value: <your_email_user>
+      - key: EMAIL_PASS
+        value: <your_email_pass>
+      - key: RECIPIENT_EMAIL
+        value: <recipient_email>
