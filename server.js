@@ -1,8 +1,14 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(cookieParser());
 
 // E-posta gönderme işlevi
 const sendEmail = (ip) => {
@@ -29,12 +35,17 @@ const sendEmail = (ip) => {
   });
 };
 
-// IP adresini alma ve e-posta gönderme
-app.get('/', (req, res) => {
+// IP adresini kaydet ve e-posta gönder
+app.post('/log-ip', (req, res) => {
   const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
   console.log(`Ziyaretçi IP adresi: ${ip}`);
   sendEmail(ip);
   res.send('IP adresiniz kaydedildi.');
+});
+
+// Ana sayfa
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
 });
 
 app.listen(port, () => {
